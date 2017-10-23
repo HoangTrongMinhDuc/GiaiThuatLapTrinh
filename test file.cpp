@@ -7,7 +7,7 @@ using namespace std;
 
 void docfile(ifstream &f)
 {
-		
+		cout<<"Bat dau doc file"<<endl;
 		while(!f.eof())
 		{
 		string s[10], ss[10], sss[10];
