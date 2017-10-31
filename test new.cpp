@@ -4,6 +4,7 @@
 #include <sstream>
 #include <fstream>
 #include <ctime>
+#include <cstring>
 using namespace std;
 struct author
 {
@@ -310,13 +311,24 @@ void output(list &l)
 	}
 }
 
+string NumtoString(int Number)
+{
+	stringstream convert;
+	convert << Number;
+	return convert.str();
+}
 void writeFile(list &l)
 {
 	time_t timenow = time(0);
 	tm *time = localtime(&timenow);
-	
+	string exportName = "Export\\" +NumtoString(time->tm_hour) + "-" + NumtoString(time->tm_min) + "-" + 
+						NumtoString(time->tm_sec) + "_(" + NumtoString(time->tm_mday) + "-" + 
+						NumtoString(time->tm_mon+1) + "-" + NumtoString(time->tm_year+1900) + ")" +".txt";
+	char* thoigian = new char[exportName.length()];
+	strcpy(thoigian, exportName.c_str());
 	fstream f;
-	f.open("datanewOut.txt", ios::out);
+	f.open(thoigian, ios::out);
+
 	article *p = new article;
 	p = l.pHead;
 	while(p!=NULL)
