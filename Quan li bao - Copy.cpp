@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <string.h>
+#include <sstream>
+#include <fstream>
 using namespace std;
 
 struct author
@@ -31,17 +34,6 @@ struct list
 	article *pTail;	
 };
 
-int lengthList(list &l)
-{
-	article *p = l.pHead;
-	int i=0;
-	while(p!=NULL)
-	{
-		i++;
-		p = p->pNext;
-	}
-	return i;
-}
 
 void init(list &l) //khoi tao danh sach rong
 {
@@ -69,41 +61,6 @@ void addTail(list &l, article *p) //them node aticle vao cuoi danh sach bai bao
 		l.pTail->pNext=p;
 		l.pTail=p;
 	}
-}
-void addHead(list &l, article *p) //them node aticle vao dau danh sach bai bao
-{
-	if(l.pHead==NULL)
-	{
-		l.pHead=l.pTail=p;
-	}
-	else
-	{
-		p->pNext=l.pHead;
-		l.pHead=p;
-	}
-}
-void addPosition(list &l, article *p, int position)
-{
-	article *q = l.pHead;
-	int i = 1;
-	while(q!=NULL && i!=(position-1))
-	{
-		i++;
-		q = q->pNext;
-	}
-	p->pNext = q->pNext;
-	q->pNext = p;
-}
-void processAddArticle(list &l, article *p, int position)
-{
-	if(position<1 || position>lengthList(l)+1)
-		cout<<"Vi tri chen khong hop le!"<<endl;
-	else if(position=1)
-		addHead(l,p);
-		else if(position=lengthList(l))
-			addTail(l,p);
-			else
-				addPosition(l,p,position);
 }
 
 void initA(article *p)  //khoi tao danh sach rong cho 2 danh sach tac gia chinh va dong tac gia
@@ -149,177 +106,123 @@ void addTailCoAuthor(article *p, author *a) //them node author vao cuoi danh sac
 	}
 }
 
-void addArticle(list &l)
+void addArticle(list &l, ifstream &f)
 {
 	article *x = new article;
 	cout<<"Nhap id: ";
-	getline(cin,x->id,'.');
+	getline(f,x->id,'\n');
 	cout<<"Nhap title: ";
-	getline(cin,x->title,'.');
+	getline(f,x->title,'\n');
 	cout<<"Nhap tap chi: ";
-	getline(cin,x->magazine,'.');
+	getline(f,x->magazine);
 	cout<<"Nhap loai tap chi: ";
-	getline(cin,x->type,'.');
+	f>>x->type;
 	cout<<"Nhap so xuat ban: ";
-	cin>>x->issue;
+	f>>x->issue;
 	cout<<"Nhap tap xuat ban: ";
-	cin>>x->volume;
-	cout<<"Nhap nam xuat ban: ";
-	cin>>x->year;
-	cout<<"Nhap nha xuat ban: ";
-	getline(cin,x->publisher,'.');
+	f>>x->volume;
+	f>>x->year;
+	f>>x->publisher;
 	article *q=getArticle(x);
 	addTail(l,q);
 	
-	int m;
-	cout<<"Nhap so luong tac gia chinh: ";
-	cin>>m;
-	initA(l.pTail);
-	for(int j=0; j<m; j++)
-	{
-		string tg;
-		cout<<"Nhap tac gia "<<j+1<<" : ";
-		getline(cin,tg,'.');
-		author *a=getAuthor(tg);
-		addTailMainAuthor(l.pTail,a);
-	}
-	
-	int k;
-	cout<<"Nhap so luong dong tac gia: ";
-	cin>>k;
-	for(int g=0; g<k; g++)
-	{
-		string dtg;
-		cout<<"Nhap tac gia "<<g+1<<" : ";
-		getline(cin,dtg,'.');
-		author *b=getAuthor(dtg);
-		addTailCoAuthor(l.pTail,b);
-	}
+//	string enter;
+//	getline(f,enter,'\n');
+//	
+//	string tempA;
+//	getline(f,tempA, '\n');
+//	string tempB;
+//	getline(f,tempB,'\n');
+//	if(tempB != "") 
+//	{
+//		getline(f,enter,'\n');
+//	}
+//	
+//	char* tacgiaA = new char[tempA.length()];
+//	strcpy(tacgiaA, tempA.c_str());
+//	char* tacgiaB = new char[tempB.length()];
+//	strcpy(tacgiaB, tempB.c_str());
+//		
+//	initA(l.pTail);
+//	
+//	for(int j=0; j<m; j++)
+//	{
+//		string tg;
+//		cout<<"Nhap tac gia "<<j+1<<" : ";
+//		getline(cin,tg,'.');
+//		author *a=getAuthor(tg);
+//		addTailMainAuthor(l.pTail,a);
+//	}
+//	
+//	int k;
+//	cout<<"Nhap so luong dong tac gia: ";
+//	cin>>k;
+//	for(int g=0; g<k; g++)
+//	{
+//		string dtg;
+//		cout<<"Nhap tac gia "<<g+1<<" : ";
+//		getline(cin,dtg,'.');
+//		author *b=getAuthor(dtg);
+//		addTailCoAuthor(l.pTail,b);
+//	}
 }
-void inputAddArticle(list &l)
+void showArticle(article *p);
+void input(list &l, ifstream &f)
 {
-	article *x = new article;
-	int position;
-	cout<<"Nhap vi tri muon them: ";
-	cin>>position;
-	
-	cout<<"Nhap id: ";
-	getline(cin,x->id,'.');
-	cout<<"Nhap title: ";
-	getline(cin,x->title,'.');
-	cout<<"Nhap tap chi: ";
-	getline(cin,x->magazine,'.');
-	cout<<"Nhap loai tap chi: ";
-	getline(cin,x->type,'.');
-	cout<<"Nhap so xuat ban: ";
-	cin>>x->issue;
-	cout<<"Nhap tap xuat ban: ";
-	cin>>x->volume;
-	cout<<"Nhap nam xuat ban: ";
-	cin>>x->year;
-	cout<<"Nhap nha xuat ban: ";
-	getline(cin,x->publisher,'.');
-	article *q=getArticle(x);
-	processAddArticle(l,q,position);
-	
-	int m;
-	cout<<"Nhap so luong tac gia chinh: ";
-	cin>>m;
-	initA(l.pTail);
-	for(int j=0; j<m; j++)
-	{
-		string tg;
-		cout<<"Nhap tac gia "<<j+1<<" : ";
-		getline(cin,tg,'.');
-		author *a=getAuthor(tg);
-		addTailMainAuthor(l.pTail,a);
-	}
-	
-	int k;
-	cout<<"Nhap so luong dong tac gia: ";
-	cin>>k;
-	for(int g=0; g<k; g++)
-	{
-		string dtg;
-		cout<<"Nhap tac gia "<<g+1<<" : ";
-		getline(cin,dtg,'.');
-		author *b=getAuthor(dtg);
-		addTailCoAuthor(l.pTail,b);
-	}
-	
-}
-void input(list &l)
-{
-	int n;
-	cout<<"Nhap so luong bai bao: ";
-	cin>>n;
 	init(l);
-	for(int i=0; i<n; i++)
-	{
-		addArticle(l);
-	}
-}
-void fixArticle(list &l)
-{
-	string id;
-	cout<<"Nhap vi tri muon sua: ";
-	cin>>id;
-	article *x;
-	cout<<"Nhap id: ";
-	getline(cin,x->id,'.');
-	cout<<"Nhap title: ";
-	getline(cin,x->title,'.');
-	cout<<"Nhap tap chi: ";
-	getline(cin,x->magazine,'.');
-	cout<<"Nhap loai tap chi: ";
-	getline(cin,x->type,'.');
-	cout<<"Nhap so xuat ban: ";
-	cin>>x->issue;
-	cout<<"Nhap tap xuat ban: ";
-	cin>>x->volume;
-	cout<<"Nhap nam xuat ban: ";
-	cin>>x->year;
-	cout<<"Nhap nha xuat ban: ";
-	getline(cin,x->publisher,'.');
-	int count = 1;
-	article *p = l.pHead;
-	while(p!=NULL && p->id!=id)
-	{
-		p = p->pNext;
-	}
-	p = x;
+	string temp;
+	while(!f.eof())
+		{
+			fflush(stdin);
+			article *x = new article;
+			getline(f,x->id,'\n');
+			getline(f,x->title,'\n');
+			getline(f,x->magazine, '\n');
+			f>>x->type;
+			f>>x->issue;
+			f>>x->volume;
+			f>>x->year;
+			f>>x->publisher;
+			getline(f, temp, '\n');
+			article *q=getArticle(x);
+			addTail(l,q);
+			showArticle(q);
+//			cout<<x->id<<endl;
+//			cout<<x->title<<endl;
+//			cout<<x->magazine<<endl;
+		}
 }
 void showArticle(article *p)
 {
 	cout<<"\n====================================================="<<endl;
-		cout<<p->id;
-		cout<<p->title;
-		cout<<p->magazine;
-		cout<<p->type;
+		cout<<p->id<<endl;
+		cout<<p->title<<endl;
+		cout<<p->magazine<<endl;
+		cout<<p->type<<endl;
 		cout<<p->issue<<endl;
 		cout<<p->volume<<endl;
-		cout<<p->year;
+		cout<<p->year<<endl;
 		cout<<p->publisher<<endl;
 		
-		cout<<"Tac gia chinh: "<<endl;
-		author *a = new author;
-		a = p->mainAHead;
-		while(a!=NULL)
-		{
-			cout<<a->tacgia;
-			a = a->aNext;
-		}
-		
-		cout<<endl;
-		
-		cout<<"Dong ac gia: "<<endl;
-		author *b = new author;
-		b = p->coAHead;
-		while(b!=NULL)
-		{
-			cout<<b->tacgia;
-			b = b->aNext;
-		}
+//		cout<<"Tac gia chinh: "<<endl;
+//		author *a = new author;
+//		a = p->mainAHead;
+//		while(a!=NULL)
+//		{
+//			cout<<a->tacgia;
+//			a = a->aNext;
+//		}
+//		
+//		cout<<endl;
+//		
+//		cout<<"Dong ac gia: "<<endl;
+//		author *b = new author;
+//		b = p->coAHead;
+//		while(b!=NULL)
+//		{
+//			cout<<b->tacgia;
+//			b = b->aNext;
+//		}
 }
 void output(list &l)
 {
@@ -331,142 +234,14 @@ void output(list &l)
 		p = p->pNext;
 	}
 }
-void deletePosition(list &l)
-{
-	int position;
-	cout<<"Nhap vi tri muon xoa: ";
-	cin>>position;
-	int count = 1;
-	article *p = l.pHead;
-	if(position<1 || position>lengthList(l))
-		cout<<"Vi tri xoa khong hop le!";
-	else if(position == 1)
-			l.pHead=l.pHead->pNext;
-		else
-		{
-			while(p!=NULL && count!=position-1)
-			{
-				count++;
-				p = p->pNext;
-			}
-			p->pNext = p->pNext->pNext;
-		}
-}
 
-void filterYear(list &l)
-{
-	int nam;
-	cout<<"Nhap nam: ";
-	cin>>nam;
-	article *p = l.pHead;
-	while(p!=NULL)
-	{
-		if(p->year==nam)
-			showArticle(p);
-		p = p->pNext;
-	}	
-}
-void filterTitle(list &l)
-{
-	string title;
-	cout<<"Nhap ten bai bao: ";
-	getline(cin,title,'.');
-	article *p = l.pHead;
-	while(p!=NULL)
-	{
-		if(p->title.find(title) != string::npos)
-			showArticle(p);
-		p = p->pNext;
-	}	
-}
-void filterType(list &l)
-{
-	string type;
-	cout<<"Nhap loai bai bao: ";
-	getline(cin,type,'.');
-	article *p = l.pHead;
-	while(p!=NULL)
-	{
-		if(p->type==type)
-			showArticle(p);
-		p = p->pNext;
-	}	
-}
-void filterMainAuthor(list &l)
-{
-	string tacgia;
-	cout<<"Nhap ten tac gia: ";
-	getline(cin,tacgia,'.');
-	article *p = l.pHead;
-	while(p!=NULL)
-	{
-		author *q = p->mainAHead;
-		while(q!=NULL)
-		{
-			if(q->tacgia.find(tacgia)!=string::npos)
-				showArticle(p);
-			q = q->aNext;
-		}
-		p = p->pNext;
-	}	
-}
-void filterCoAuthor(list &l)
-{
-	string tacgia;
-	cout<<"Nhap ten tac gia: ";
-	getline(cin,tacgia,'.');
-	article *p = l.pHead;
-	while(p!=NULL)
-	{
-		author *q = p->coAHead;
-		while(q!=NULL)
-		{
-			if(q->tacgia.find(tacgia)!=string::npos)
-				showArticle(p);
-			q = q->aNext;
-		}
-		p = p->pNext;
-	}	
-}
-void swap(article &a,article &b)
-{
-	article c=a;
-			a=b;
-			b=c;
-}
-void sortID(list &l)
-{	
-	article *h= l.pHead;
-	article *q=l.pHead->pNext;
-	while (h!=NULL)
-	{
-		while(q!=NULL)
-		{
-			if(h->id>=q->id) swap(*h,*q);
-			q=q->pNext;
-		}
-		h=h->pNext;
-	}
-}
-void sortTitle(list &l)
-{	
-	article *h= l.pHead;
-	article *q=l.pHead->pNext;
-	while (h!=NULL)
-	{
-		while(q!=NULL)
-		{
-			if(h->title>=q->title) swap(*h,*q);
-			q=q->pNext;
-		}
-		h=h->pNext;
-	}
-}
 int main()
 {
+	ifstream f;
+	f.open("datanew.txt");
 	list l;
-	input(l);
-	filterCoAuthor(l);
-	output(l);
+	input(l,f);
+	f.close();
+	//output(l);
 	return 0;
 }

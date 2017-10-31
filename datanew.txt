@@ -1,0 +1,19 @@
+6015002
+Predicting Compressive Strength of High Performance Concrete Using Metaheuristic-Optimized Least Squares Support Vector Regression
+Journal of Computing in Civil Engineering
+SCI 3 30 2015 ASCE
+Pham Anh Duc, Hoang Nhat Duc, Nguyen Quang Trung
+Jui-Sheng Chou, Ngo Ngoc Tri, Pham Anh Duc
+
+4015002
+Shear Strength Prediction in Reinforced Concrete Deep Beams Using Nature-Inspired Metaheuristic Support Vector Regression
+Journal of Computing in Civil Engineering
+SCI 1 30 2015 ASCE
+Pham Anh Duc, Hoang Nhat Duc, Nguyen Quang Trung
+
+2215565
+Hybrid computational model for predicting bridge scour depth near piers and abutments
+Journal of Automation in Construction
+SCIE 12 48 2014 JoAiC
+Jui-Sheng Chou, Pham Anh Duc
+Pham Anh Duc, Hoang Nhat Duc, Nguyen Quang Trung

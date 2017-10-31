@@ -12,8 +12,7 @@ Journal of Computing in Civil Engineering
 SCI 1 30 2015 ASCE
 3	
 Jui-Sheng Chou|Ngo Ngoc Tri|Pham Anh Duc|
-3
-Pham Anh Duc|Hoang Nhat Duc|Nguyen Quang Trung|
+0
 2211235
 Hybrid computational model for predicting bridge scour depth near piers and abutments	
 Journal of Automation in Construction	
