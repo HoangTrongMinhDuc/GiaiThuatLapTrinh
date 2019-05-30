@@ -1,0 +1,98 @@
+6015002
+Predicting Compressive Strength of High Performance Concrete Using Metaheuristic-Optimized Least Squares Support Vector Regression
+Journal of Computing in Civil Engineering
+SCI 3 30 2017 ASCE
+Pham Anh Duc, Hoang Nhat Duc, Nguyen Quang Trung
+Jui-Sheng Chou, Ngo Ngoc Tri, Pham Anh Duc
+
+2635232
+Shear Strength Prediction in Reinforced Concrete Deep Beams Using Nature-Inspired Metaheuristic Support Vector Regression
+Journal of Computing in Civil Engineering
+SCI 1 30 2016 ASCE
+Pham Anh Duc, Hoang Nhat Duc, Nguyen Quang Trung
+
+2215565
+Hybrid computational model for predicting bridge scour depth near piers and abutments
+Journal of Automation in Construction
+SCIE 12 48 2014 JoAiC
+Jui-Sheng Chou, Pham Anh Duc
+Pham Anh Duc, Hoang Nhat Duc, Nguyen Quang Trung
+
+9896
+Cai tien cong cu sinh du lieu thu Java PathFinder boi toi uu cac rang buoc
+Tap chi Khoa hoc Cong Nghe Dai hoc Da Nang
+SCI 5 114 2017 Dai hoc Da Nang
+Le Thi My Hanh, Nguyen Thanh Binh
+
+01641212
+A novel fitness function of metaheuristic algorithms for test data generation for Simulink models based on mutation analysis
+The Journal of Systems and Software
+SCI 12 120 2016 The Journal of Systems and Software
+Le Thi My Hanh, Nguyen Thanh Binh, Khuat Thanh Tung
+
+16285249
+The Tool Support For Testing Interactive Multimodal Applications
+In Proceedings of the international Conference on Electronic, Information and Comunication
+ICEIC 10 11 2016 IEEE
+Le Thanh Long, Nguyen Thanh Binh, Ioannis Parissis
+
+16285188
+Improving Mutant Generation for Simulink Models using Genetic Algorithm
+Proceeding of the International Conference on Electronics, Information and Communication
+ICEIC 8 9 2016 IEEE
+Nguyen Thi Ha Quyen, Khuat Thanh Tung, Le Thi My Hanh, Nguyen Thanh Binh
+
+20888708
+Survey on Mutation-based Test Data Generation
+International Journal of Electrical and Computer Engineering
+ICEIC 5 5 2015 IEEE
+Hanh Le Thi My, Binh Nguyen Thanh, Tung Khuat Thanh
+
+316104749
+Cai tien thuc thi dot bien trong kiem thu dot bien cho cac mo hinh Sumulink su dung tinh toan song song
+Tap chi Khoa hoc Cong Nghe Dai hoc Da Nang
+CNTT 1 74 2014 Dai Hoc Da Nang
+Le Thi My Hanh, Khuat Thanh Tung, Nguyen Thanh Binh
+
+B20051550
+Nghien cuu xay dung he thong ho tro tinh toan va xy ly song song tren moi truong phan tan
+Tap chi Khoa Hoc
+DTCB 15 50 2006 Dai hoc Bach Khoa Da Nang
+Nguyen Tan Khoi
+Mai Van Ha, Tran Ho Thuy Tien, Nguyen Van Nguyen, Huynh Cong Phap
+
+CITA2015
+Ung dung sandbox phan tich ma doc tren moi truong phan tan
+Tap chi Khoa hoc Cong nghe Dai hoc Da Nang
+BBKH 12 97 2015 Dai hoc Da Nang
+Tran Thanh Liem, Nguyen Tan Khoi
+
+BBKH6861
+Giai phap tao giao trinh dien tu bang van pham phi ngu canh
+Tap chi Khoa hoc Cong nghe Dai hoc Da Nang
+BBKH 1 120 2014 Dai hoc Da Nang
+Nguyen Thi Minh Hy
+
+BBKH9238
+Giai phap kiem tra tinh dung cua van pham phi ngu canh
+Tap chi Khoa hoc Cong nghe Dai hoc Da Nang
+BBKH 7 104 2016 Dai hoc Da Nang
+Nguyen Thi Minh Hy
+
+978604913
+Representing context in abbreviation expansion using machine learning approach
+In Proceedings of the 10th National Conference on Fundamental and Applied Information Technology Research 
+BBKH 10 1 2017 Hoi Nghi FAIR 2017
+Trieu Thi Ly Ly, Nguyen Van Quy, Ninh Khanh Duy, Huynh Huu Hung, Dang Duy Thang
+
+2578031
+Item-based collaborative filtering in the multi-criteria recommender system with ordered weighted averaging operator on sparse datasets
+The International Conference on Information and Communication Technology and Digital Convergence Business 
+ICIDB 1 1 2018 ICIDB
+Tri Minh Huynh, Vu The Tran, Hung Huu Huynh, Hiep Xuan Huynh
+
+9600
+Mo hinh tu van loc cong tac tich hop dua tren tuong dong san pham
+Tap chi Khoa hoc Cong nghe Dai hoc Da Nang
+BBKH 1 110 2017 Dai hoc Da Nang
+Phan Quoc Nghia, Dang Hoai Phuong, Huynh Xuan Hiep
